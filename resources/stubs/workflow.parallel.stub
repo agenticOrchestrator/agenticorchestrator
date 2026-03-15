@@ -1,0 +1,84 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Contracts\WorkflowInterface;
+use AgenticOrchestrator\Workflows\WorkflowContext;
+use AgenticOrchestrator\Workflows\WorkflowDefinition;
+
+/**
+ * {{ class }} Workflow - Parallel execution example.
+ *
+ * This workflow demonstrates how to run multiple steps concurrently.
+ */
+class {{ class }} implements WorkflowInterface
+{
+    /**
+     * The team ID this workflow belongs to.
+     */
+    protected int|string|null $teamId = null;
+
+    /**
+     * Define the workflow steps with parallel execution.
+     */
+    public function definition(): WorkflowDefinition
+    {
+        return WorkflowDefinition::create()
+            ->name('{{ class }}')
+            ->description('A workflow with parallel step execution')
+
+            // Initial sequential step
+            ->callback('prepare', function (WorkflowContext $ctx) {
+                return [
+                    'prepared_at' => now()->toIso8601String(),
+                    'input' => $ctx->get('input'),
+                ];
+            })
+
+            // Parallel execution - all steps run concurrently
+            ->parallel('concurrent_tasks', [
+                // Task 1: Process data
+                fn (WorkflowContext $ctx) => WorkflowDefinition::create()
+                    ->callback('task_one', function (WorkflowContext $ctx) {
+                        return ['task' => 'one', 'status' => 'completed'];
+                    }),
+
+                // Task 2: Analyze data
+                fn (WorkflowContext $ctx) => WorkflowDefinition::create()
+                    ->callback('task_two', function (WorkflowContext $ctx) {
+                        return ['task' => 'two', 'status' => 'completed'];
+                    }),
+
+                // Task 3: Validate data
+                fn (WorkflowContext $ctx) => WorkflowDefinition::create()
+                    ->callback('task_three', function (WorkflowContext $ctx) {
+                        return ['task' => 'three', 'status' => 'completed'];
+                    }),
+            ])
+
+            // Merge results from parallel tasks
+            ->callback('merge_results', function (WorkflowContext $ctx) {
+                return [
+                    'task_one' => $ctx->get('concurrent_tasks.task_one'),
+                    'task_two' => $ctx->get('concurrent_tasks.task_two'),
+                    'task_three' => $ctx->get('concurrent_tasks.task_three'),
+                    'merged_at' => now()->toIso8601String(),
+                ];
+            });
+    }
+
+    /**
+     * Scope the workflow to a specific team.
+     *
+     * @param int|string|object $team
+     */
+    public function forTeam(int|string|object $team): static
+    {
+        $clone = clone $this;
+        $clone->teamId = is_object($team) ? $team->getKey() : $team;
+
+        return $clone;
+    }
+}

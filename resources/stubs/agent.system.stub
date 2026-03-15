@@ -1,0 +1,71 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Agents\Agent;
+
+/**
+ * {{ description }}
+ *
+ * This is a system agent available to all teams.
+ */
+class {{ class }} extends Agent
+{
+    /**
+     * The default LLM model for this agent.
+     */
+    protected string $model = '{{ model }}';
+
+    /**
+     * The default LLM provider for this agent.
+     */
+    protected string $provider = '{{ provider }}';
+
+    /**
+     * Mark this as a system agent.
+     */
+    protected bool $isSystem = true;
+
+    /**
+     * Agent capabilities configuration.
+     *
+     * @var array<string, mixed>
+     */
+    protected array $capabilities = [
+        'can_delegate' => false,
+        'max_iterations' => 10,
+        'require_approval' => false,
+    ];
+
+    /**
+     * Get the agent's system instructions.
+     */
+    public function instructions(): string
+    {
+        return <<<'INSTRUCTIONS'
+        You are a helpful AI assistant available to all teams.
+
+        Be concise, professional, and helpful in your responses.
+        Follow company guidelines and maintain consistency across all teams.
+        INSTRUCTIONS;
+    }
+
+    /**
+     * Get the agent name for registration.
+     */
+    public static function getName(): string
+    {
+        // Return a consistent name for system-wide registration
+        return '{{ class }}';
+    }
+
+    /**
+     * Get the agent description.
+     */
+    public static function getDescription(): string
+    {
+        return '{{ description }}';
+    }
+}

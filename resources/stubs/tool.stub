@@ -1,0 +1,89 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Contracts\ToolInterface;
+use AgenticOrchestrator\Tools\ToolResult;
+
+/**
+ * {{ description }}
+ */
+class {{ class }} implements ToolInterface
+{
+    /**
+     * Get the tool name.
+     */
+    public function getName(): string
+    {
+        return '{{ toolName }}';
+    }
+
+    /**
+     * Get the tool description.
+     */
+    public function getDescription(): string
+    {
+        return '{{ description }}';
+    }
+
+    /**
+     * Execute the tool with given arguments.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    public function execute(array $arguments): ToolResult
+    {
+        // TODO: Implement your tool logic here
+
+        return ToolResult::success([
+            'message' => 'Tool executed successfully',
+        ]);
+    }
+
+    /**
+     * Get the tool schema for LLM function calling.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSchema(): array
+    {
+        return [
+            'type' => 'function',
+            'function' => [
+                'name' => $this->getName(),
+                'description' => $this->getDescription(),
+                'parameters' => [
+                    'type' => 'object',
+                    'properties' => [
+                        // Define your parameters here
+                        'input' => [
+                            'type' => 'string',
+                            'description' => 'The input for this tool',
+                        ],
+                    ],
+                    'required' => ['input'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Whether this tool can run in parallel with other tools.
+     */
+    public function isParallel(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Validate the tool arguments.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    public function validate(array $arguments): bool
+    {
+        return isset($arguments['input']);
+    }
+}

@@ -1,0 +1,112 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Contracts\WorkflowInterface;
+use AgenticOrchestrator\Workflows\Steps\AgentStep;
+use AgenticOrchestrator\Workflows\Steps\CallbackStep;
+use AgenticOrchestrator\Workflows\WorkflowContext;
+use AgenticOrchestrator\Workflows\WorkflowDefinition;
+
+/**
+ * {{ class }} Workflow - Conditional branching example.
+ *
+ * This workflow demonstrates conditional step execution.
+ */
+class {{ class }} implements WorkflowInterface
+{
+    /**
+     * The team ID this workflow belongs to.
+     */
+    protected int|string|null $teamId = null;
+
+    /**
+     * Define the workflow steps with conditional branching.
+     */
+    public function definition(): WorkflowDefinition
+    {
+        return WorkflowDefinition::create()
+            ->name('{{ class }}')
+            ->description('A workflow with conditional branching')
+
+            // Initial evaluation step
+            ->callback('evaluate', function (WorkflowContext $ctx) {
+                $input = $ctx->get('input', []);
+                $score = $input['score'] ?? 0;
+                $priority = $input['priority'] ?? 'normal';
+
+                return [
+                    'score' => $score,
+                    'priority' => $priority,
+                    'is_high_priority' => $priority === 'high' || $score > 80,
+                    'is_low_score' => $score < 50,
+                ];
+            })
+
+            // Conditional: High priority path vs standard path
+            ->when(
+                'priority_check',
+                fn (WorkflowContext $ctx) => $ctx->get('evaluate.is_high_priority') === true,
+                // High priority branch
+                CallbackStep::make('high_priority_process', function (WorkflowContext $ctx) {
+                    return [
+                        'handler' => 'expedited',
+                        'sla' => '1 hour',
+                        'escalation' => true,
+                    ];
+                }),
+                // Standard priority branch
+                CallbackStep::make('standard_process', function (WorkflowContext $ctx) {
+                    return [
+                        'handler' => 'standard',
+                        'sla' => '24 hours',
+                        'escalation' => false,
+                    ];
+                })
+            )
+
+            // Another conditional: Score-based routing
+            ->when(
+                'score_check',
+                fn (WorkflowContext $ctx) => $ctx->get('evaluate.is_low_score') === true,
+                // Low score - needs review
+                CallbackStep::make('needs_review', function (WorkflowContext $ctx) {
+                    return [
+                        'requires_review' => true,
+                        'reason' => 'Score below threshold',
+                    ];
+                }),
+                // Acceptable score - auto-approve
+                CallbackStep::make('auto_approved', function (WorkflowContext $ctx) {
+                    return [
+                        'requires_review' => false,
+                        'auto_approved' => true,
+                    ];
+                })
+            )
+
+            // Final aggregation
+            ->callback('finalize', function (WorkflowContext $ctx) {
+                return [
+                    'priority_result' => $ctx->get('priority_check'),
+                    'score_result' => $ctx->get('score_check'),
+                    'completed_at' => now()->toIso8601String(),
+                ];
+            });
+    }
+
+    /**
+     * Scope the workflow to a specific team.
+     *
+     * @param int|string|object $team
+     */
+    public function forTeam(int|string|object $team): static
+    {
+        $clone = clone $this;
+        $clone->teamId = is_object($team) ? $team->getKey() : $team;
+
+        return $clone;
+    }
+}

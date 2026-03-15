@@ -1,0 +1,126 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Contracts\ToolInterface;
+use AgenticOrchestrator\Tools\ToolResult;
+use Illuminate\Support\Facades\Queue;
+
+/**
+ * {{ description }}
+ *
+ * This tool executes asynchronously via queued jobs.
+ */
+class {{ class }} implements ToolInterface
+{
+    /**
+     * Get the tool name.
+     */
+    public function getName(): string
+    {
+        return '{{ toolName }}';
+    }
+
+    /**
+     * Get the tool description.
+     */
+    public function getDescription(): string
+    {
+        return '{{ description }}';
+    }
+
+    /**
+     * Execute the tool with given arguments.
+     *
+     * This method dispatches a queued job and returns immediately.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    public function execute(array $arguments): ToolResult
+    {
+        $jobId = $this->dispatchJob($arguments);
+
+        return ToolResult::pending([
+            'job_id' => $jobId,
+            'status' => 'queued',
+            'message' => 'Task has been queued for processing',
+        ]);
+    }
+
+    /**
+     * Dispatch the async job.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    protected function dispatchJob(array $arguments): string
+    {
+        $jobId = uniqid('{{ toolName }}_', true);
+
+        // TODO: Replace with your actual job class
+        // Queue::push(new YourToolJob($jobId, $arguments));
+
+        return $jobId;
+    }
+
+    /**
+     * Check the status of an async job.
+     */
+    public function checkStatus(string $jobId): ToolResult
+    {
+        // TODO: Implement status checking logic
+        // This could check a cache, database, or job tracking system
+
+        return ToolResult::success([
+            'job_id' => $jobId,
+            'status' => 'completed',
+            'result' => [],
+        ]);
+    }
+
+    /**
+     * Get the tool schema for LLM function calling.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSchema(): array
+    {
+        return [
+            'type' => 'function',
+            'function' => [
+                'name' => $this->getName(),
+                'description' => $this->getDescription(),
+                'parameters' => [
+                    'type' => 'object',
+                    'properties' => [
+                        // Define your parameters here
+                        'input' => [
+                            'type' => 'string',
+                            'description' => 'The input for this tool',
+                        ],
+                    ],
+                    'required' => ['input'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Whether this tool can run in parallel with other tools.
+     */
+    public function isParallel(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Validate the tool arguments.
+     *
+     * @param array<string, mixed> $arguments
+     */
+    public function validate(array $arguments): bool
+    {
+        return isset($arguments['input']);
+    }
+}

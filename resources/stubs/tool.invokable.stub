@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Tools\Attributes\Tool;
+use AgenticOrchestrator\Tools\Attributes\ToolParameter;
+
+/**
+ * {{ class }} - An invokable single-method tool.
+ *
+ * This tool uses PHP 8 attributes for definition.
+ */
+class {{ class }}
+{
+    /**
+     * Execute the tool.
+     *
+     * Customize the parameters and return type as needed.
+     *
+     * @return array<string, mixed>
+     */
+    #[Tool('{{ description }}')]
+    public function __invoke(
+        #[ToolParameter('The primary input for this tool')]
+        string $input,
+    ): array {
+        // TODO: Implement your tool logic here
+
+        return [
+            'success' => true,
+            'input' => $input,
+            'result' => null,
+        ];
+    }
+}

@@ -1,0 +1,2167 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property object\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Call to an undefined method AgenticOrchestrator\\Contracts\\AgentInterface\:\:setDelegationContext\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Call to function is_string\(\) with class\-string will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 4
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(AgenticOrchestrator\\Agents\\Agent\) and ''getTeamId'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(AgenticOrchestrator\\Agents\\Agent\) and ''getUserId'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Invalid type Throwable\|null to throw\.$#'
+			identifier: throw.notThrowable
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\Agent\:\:wrapPrismStream\(\) has parameter \$prismStream with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Offset ''arguments'' on array\{name\: string, arguments\: string\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Offset ''content'' on array\{content\: string, tool_calls\: array, usage\: array, metadata\: array, latency\: float, finish_reason\: string\|null\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Offset ''latency'' on array\{content\: string, tool_calls\: array, usage\: array, metadata\: array, latency\: float, finish_reason\: string\|null\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Offset ''metadata'' on array\{content\: string, tool_calls\: array, usage\: array, metadata\: array, latency\: float, finish_reason\: string\|null\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Offset ''usage'' on array\{content\: string, tool_calls\: array, usage\: array, metadata\: array, latency\: float, finish_reason\: string\|null\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Parameter \$toolCalls of class AgenticOrchestrator\\Agents\\AgentResponse constructor expects array\<int, array\{id\: string, name\: string, arguments\: array\<string, mixed\>, result\: mixed\}\>, list\<array\{tool_call_id\: string, name\: string, arguments\: array\<string, mixed\>, result\: mixed\}\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Parameter \$usage of class AgenticOrchestrator\\Agents\\AgentResponse constructor expects array\{prompt_tokens\: int, completion_tokens\: int, total_tokens\: int\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Return type \(Illuminate\\Support\\Collection\<int, array\{name\: string, description\: string, method\: ReflectionMethod, attribute\: AgenticOrchestrator\\Tools\\Attributes\\Tool\}\>\) of method AgenticOrchestrator\\Agents\\Agent\:\:getTools\(\) should be compatible with return type \(Illuminate\\Support\\Collection\<int, AgenticOrchestrator\\Contracts\\ToolInterface\>\) of method AgenticOrchestrator\\Contracts\\AgentInterface\:\:getTools\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>id" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\AgentContext\:\:buildMessages\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Agents/AgentContext.php
+
+		-
+			message: '#^Offset ''arguments'' on array\{tool_call_id\: string, name\: string, result\: mixed\} on left side of \?\? does not exist\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Agents/AgentContext.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\AgentManager\:\:make\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\AgentManager\:\:makeForTeam\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\AgentManager\:\:resolveTeamId\(\) should return int\|string but returns int\|object\|string\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Parameter \#1 \$team of method AgenticOrchestrator\\Contracts\\TeamScopedInterface\:\:forTeam\(\) expects object, int\|object\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentManager\:\:\$agents \(array\<string, class\-string\<AgenticOrchestrator\\Contracts\\AgentInterface\>\>\) does not accept array\<string, \(callable\)\|class\-string\<AgenticOrchestrator\\Contracts\\AgentInterface\>\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Agents/AgentManager.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Agents\\AgentResponse implements generic interface Illuminate\\Contracts\\Support\\Arrayable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Agents/AgentResponse.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$usage on left side of \?\? is not nullable nor uninitialized\.$#'
+			identifier: nullCoalesce.initializedProperty
+			count: 3
+			path: src/Agents/AgentResponse.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\HasHybridResponse has PHPDoc tag @method for method respond\(\) parameter \#2 \$context with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Agents/Concerns/HasHybridResponse.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\HasHybridResponse is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Agents/Concerns/HasHybridResponse.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\HasRag is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Agents/Concerns/HasRag.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\HasResilience is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Agents/Concerns/HasResilience.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\HasStructuredOutput is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Agents/Concerns/HasStructuredOutput.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Agents\\Concerns\\TracksUsage is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Agents/Concerns/TracksUsage.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\Events\\AgentCompleted\:\:getTenantKey\(\) should return string\|null but returns int\|string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Agents/Events/AgentCompleted.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\Events\\AgentFailed\:\:getTenantKey\(\) should return string\|null but returns int\|string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Agents/Events/AgentFailed.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\Events\\AgentStarted\:\:getTenantKey\(\) should return string\|null but returns int\|string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Agents/Events/AgentStarted.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Agents\\Events\\ToolExecuted\:\:getTenantKey\(\) should return string\|null but returns int\|string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Agents/Events/ToolExecuted.php
+
+		-
+			message: '#^Parameter \#2 \$data of function hash expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Caching/CacheKeyGenerator.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Repository\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Caching/EmbeddingCache.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Repository\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Caching/ResponseCache.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Caching\\ResponseCache\:\:has\(\) has parameter \$context with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Caching/ResponseCache.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Repository\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Caching/ToolResultCache.php
+
+		-
+			message: '#^Call to an undefined method AgenticOrchestrator\\Contracts\\AgentInterface\:\:forUser\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Console/Commands/ChatAgentCommand.php
+
+		-
+			message: '#^Access to an undefined property AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:\$evaluation_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Console/Commands/EvaluateAgentCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of method Illuminate\\Console\\Command\:\:line\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/EvaluateAgentCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of method Illuminate\\Console\\Command\:\:line\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/ListAgentsCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of method Illuminate\\Console\\Command\:\:line\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/ListToolsCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/MakeAgentCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/MakeToolCommand.php
+
+		-
+			message: '#^Call to an undefined method AgenticOrchestrator\\Contracts\\AgentInterface\:\:forUser\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Console/Commands/RunAgentCommand.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Console\\Commands\\RunWorkflowCommand\:\:resolveWorkflowClass\(\) should return class\-string\<AgenticOrchestrator\\Contracts\\WorkflowInterface\>\|null but returns class\-string\.$#'
+			identifier: return.type
+			count: 3
+			path: src/Console/Commands/RunWorkflowCommand.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Console\\Commands\\RunWorkflowCommand\:\:resumeWorkflow\(\) has parameter \$resumeData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Console/Commands/RunWorkflowCommand.php
+
+		-
+			message: '#^Parameter \#1 \$string of method Illuminate\\Console\\Command\:\:line\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Console/Commands/RunWorkflowCommand.php
+
+		-
+			message: '#^Parameter \#1 \$workflow of method AgenticOrchestrator\\Workflows\\WorkflowRunner\:\:resume\(\) expects AgenticOrchestrator\\Contracts\\WorkflowInterface\|AgenticOrchestrator\\Workflows\\WorkflowDefinition\|class\-string\<AgenticOrchestrator\\Contracts\\WorkflowInterface\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/RunWorkflowCommand.php
+
+		-
+			message: '#^Parameter \#1 \$agentClass of method AgenticOrchestrator\\Agents\\AgentManager\:\:registerSystemAgent\(\) expects class\-string\<AgenticOrchestrator\\Contracts\\AgentInterface\>, class\-string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Console/Commands/SyncSystemAgentsCommand.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Conversations\\Message implements generic interface Illuminate\\Contracts\\Support\\Arrayable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Conversations\\Message\:\:assistant\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Conversations\\Message\:\:assistant\(\) has parameter \$toolCalls with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Conversations\\Message\:\:toApiFormat\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Conversations\\Message\:\:tool\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Conversations\\Message\:\:user\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Conversations/Message.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/Providers/OpenAIEmbeddings.php
+
+		-
+			message: '#^Missing parameter \$document \(AgenticOrchestrator\\Embeddings\\VectorDocument\) in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.missing
+			count: 1
+			path: src/Embeddings/Stores/ChromaVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$content in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/ChromaVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$id in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/ChromaVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$metadata in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/ChromaVectorStore.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/Stores/ChromaVectorStore.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/Stores/PgVectorStore.php
+
+		-
+			message: '#^Missing parameter \$document \(AgenticOrchestrator\\Embeddings\\VectorDocument\) in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.missing
+			count: 1
+			path: src/Embeddings/Stores/QdrantVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$content in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/QdrantVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$id in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/QdrantVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$metadata in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/QdrantVectorStore.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/Stores/QdrantVectorStore.php
+
+		-
+			message: '#^Missing parameter \$document \(AgenticOrchestrator\\Embeddings\\VectorDocument\) in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.missing
+			count: 1
+			path: src/Embeddings/Stores/WeaviateVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$content in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/WeaviateVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$id in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/WeaviateVectorStore.php
+
+		-
+			message: '#^Unknown parameter \$metadata in call to AgenticOrchestrator\\Embeddings\\VectorSearchResult constructor\.$#'
+			identifier: argument.unknown
+			count: 1
+			path: src/Embeddings/Stores/WeaviateVectorStore.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/Stores/WeaviateVectorStore.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 3
+			path: src/Embeddings/VectorDocument.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Embeddings/VectorSearchResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\AssertionResult\:\:fail\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/AssertionResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\AssertionResult\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/AssertionResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\AssertionResult\:\:pass\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/AssertionResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\AssertionResult\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/AssertionResult.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Evaluation/AssertionResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Assertions\\JsonAssertion\:\:hasKey\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/Assertions/JsonAssertion.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\EvaluationResult\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/EvaluationResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\EvaluationResult\:\:summary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/EvaluationResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\EvaluationResult\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/EvaluationResult.php
+
+		-
+			message: '#^Cannot call method forTeam\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Evaluation/Evaluator.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Evaluation/Evaluator.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Evaluation/LlmJudge.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\MetricResult\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/MetricResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\MetricResult\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/MetricResult.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Evaluation/Metrics/AbstractMetric.php
+
+		-
+			message: '#^Access to an undefined property AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:\$duration_ms\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Access to an undefined property AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:\$pass_rate\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Call to an undefined static method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:create\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeCompleted\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeCompleted\(\) has parameter \$query with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeForAgent\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeForAgent\(\) has parameter \$query with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeForTeam\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeForTeam\(\) has parameter \$query with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeWithStatus\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:scopeWithStatus\(\) has parameter \$query with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Evaluation\\Models\\AgentEvaluation\:\:\$casts type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/Models/AgentEvaluation.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCase\:\:fromArray\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCase.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCase\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCase.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCase\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCase.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Evaluation/TestCase.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:error\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:failed\(\) has parameter \$assertionResults with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:failed\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:failed\(\) has parameter \$metricResults with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:passed\(\) has parameter \$assertionResults with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:passed\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:passed\(\) has parameter \$metricResults with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:skipped\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Evaluation\\TestCaseResult\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 4
+			path: src/Evaluation/TestCaseResult.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Evaluation/TestSuite.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Exceptions/AgentException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 3
+			path: src/Exceptions/CircuitBreakerOpenException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Exceptions/MemoryException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 6
+			path: src/Exceptions/ProviderException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 4
+			path: src/Exceptions/RateLimitException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 3
+			path: src/Exceptions/ToolExecutionException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 4
+			path: src/Exceptions/ValidationException.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 4
+			path: src/Exceptions/WorkflowException.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Facades\\Tenant has PHPDoc tag @method for method forUser\(\) return type with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Facades/Tenant.php
+
+		-
+			message: '#^Trait AgenticOrchestrator\\Mcp\\Concerns\\HasMcp is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Mcp/Concerns/HasMcp.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Mcp/McpClient.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Mcp/McpToolProvider.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Memory/Drivers/CacheDriver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$content\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Memory/Drivers/DatabaseDriver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Memory/Drivers/DatabaseDriver.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Memory\\Drivers\\DatabaseDriver\:\:search\(\) should return Illuminate\\Support\\Collection\<int, array\{key\: string, content\: mixed, score\: float, metadata\: array\<string, mixed\>\}\> but returns Illuminate\\Support\\Collection\<int, array\{key\: mixed, content\: mixed, score\: mixed, metadata\: mixed\}\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Memory/Drivers/DatabaseDriver.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Memory/Drivers/SessionDriver.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Memory\\Drivers\\VectorMemoryDriver\:\:serializeValue\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Memory/Drivers/VectorMemoryDriver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$companies\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$organizations\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$teams\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$tenants\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Call to static method getCurrentPanel\(\) on an unknown class Filament\\Facades\\Filament\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Call to static method getTenant\(\) on an unknown class Filament\\Facades\\Filament\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Cannot access property \$members on class\-string\|object\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Cannot access property \$users on class\-string\|object\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Cannot call method getFilamentName\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/MultiTenancy/Resolvers/FilamentResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$companies\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$organizations\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$teams\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$tenants\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$workspaces\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/GenericResolver.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Contracts\\Auth\\Authenticatable\:\:\$currentTeam\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/MultiTenancy/Resolvers/JetstreamResolver.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Authenticatable\:\:switchTeam\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/JetstreamResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$tenants\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/SpatieTenancyResolver.php
+
+		-
+			message: '#^Call to an undefined method object\:\:makeCurrent\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/SpatieTenancyResolver.php
+
+		-
+			message: '#^Call to static method current\(\) on an unknown class Spatie\\Multitenancy\\Multitenancy\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/SpatieTenancyResolver.php
+
+		-
+			message: '#^Call to static method forgetCurrentTenant\(\) on an unknown class Spatie\\Multitenancy\\Multitenancy\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/SpatieTenancyResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$belongsToManyTenants\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/StanclTenancyResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$tenants\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Resolvers/StanclTenancyResolver.php
+
+		-
+			message: '#^Function tenancy not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: src/MultiTenancy/Resolvers/StanclTenancyResolver.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$members\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$users\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Parameter \#1 \$string of function ucfirst expects string, \(callable\)\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Parameter \#2 \$method of function method_exists expects string, \(callable\)\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Parameter \#2 \$property of function property_exists expects string, \(callable\)\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/MultiTenancy/Tenant.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:buildPrismRequest\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:buildPrismRequest\(\) has parameter \$tools with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:chat\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:chat\(\) has parameter \$tools with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:chat\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 3
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:convertMessages\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:convertTools\(\) has parameter \$tools with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Providers\\ProviderManager\:\:extractToolCalls\(\) should return array\<int, array\{id\: string, type\: string, function\: array\{name\: string, arguments\: string\}\}\> but returns list\<array\{id\: mixed, type\: ''function'', function\: array\{name\: mixed, arguments\: string\|false\}\}\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Offset ''tool_name'' on array\{role\: ''tool'', content\: string, tool_calls\?\: array, tool_call_id\?\: string\} on left side of \?\? does not exist\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Parameter \#1 \$separator of function explode expects non\-empty\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/Chunking/RecursiveCharacterChunker.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 7
+			path: src/Rag/Document.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Rag\\Loaders\\JsonLoader\:\:extractContent\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 2
+			path: src/Rag/Loaders/JsonLoader.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/Loaders/MarkdownLoader.php
+
+		-
+			message: '#^Parameter \#2 \$timestamp of function date expects int\|null, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/Loaders/MarkdownLoader.php
+
+		-
+			message: '#^Parameter \#2 \$content of static method AgenticOrchestrator\\Rag\\Document\:\:fromFile\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/Loaders/TextLoader.php
+
+		-
+			message: '#^Parameter \#2 \$timestamp of function date expects int\|null, int\<0, max\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/Loaders/TextLoader.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 7
+			path: src/Rag/RagConfig.php
+
+		-
+			message: '#^Cannot call method deleteByFilter\(\) on AgenticOrchestrator\\Embeddings\\Contracts\\VectorStoreInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Cannot call method embedBatch\(\) on AgenticOrchestrator\\Embeddings\\Contracts\\EmbeddingProviderInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Cannot call method upsertBatch\(\) on AgenticOrchestrator\\Embeddings\\Contracts\\VectorStoreInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Rag\\RagPipeline\:\:fromText\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Parameter \#1 \$embeddings of class AgenticOrchestrator\\Rag\\Retrievers\\VectorRetriever constructor expects AgenticOrchestrator\\Embeddings\\Contracts\\EmbeddingProviderInterface, AgenticOrchestrator\\Embeddings\\Contracts\\EmbeddingProviderInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Parameter \#2 \$store of class AgenticOrchestrator\\Rag\\Retrievers\\VectorRetriever constructor expects AgenticOrchestrator\\Embeddings\\Contracts\\VectorStoreInterface, AgenticOrchestrator\\Embeddings\\Contracts\\VectorStoreInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Rag/RagPipeline.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Rag/RagPipelineResult.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/RateLimiting/AgentRateLimiter.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\RateLimiting\\RateLimiter\:\:retryAfter\(\) should return int but returns float\|int\<0, max\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/RateLimiting/RateLimiter.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/RateLimiting/TeamRateLimiter.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/RateLimiting/TeamRateLimiter.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/RateLimiting/TokenRateLimiter.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/RateLimiting/TokenRateLimiter.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/RateLimiting/UserRateLimiter.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/RateLimiting/UserRateLimiter.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Resilience\\CircuitBreaker\:\:__construct\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Resilience/CircuitBreaker.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Resilience/CircuitBreaker.php
+
+		-
+			message: '#^Template type T of method AgenticOrchestrator\\Resilience\\FallbackHandler\:\:execute\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: src/Resilience/FallbackHandler.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Resilience/FallbackHandler.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Resilience\\ProviderFallbackChain\:\:execute\(\) has parameter \$callback with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Resilience/ProviderFallbackChain.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Resilience\\ProviderFallbackChain\:\:executeWithProvider\(\) has parameter \$callback with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Resilience/ProviderFallbackChain.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Resilience/ProviderFallbackChain.php
+
+		-
+			message: '#^Invalid type Throwable\|null to throw\.$#'
+			identifier: throw.notThrowable
+			count: 1
+			path: src/Resilience/RetryStrategy.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Resilience\\RetryStrategy\:\:__construct\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Resilience/RetryStrategy.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Resilience/RetryStrategy.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Support\\Collection\<int,AgenticOrchestrator\\Responses\\ResponseSegment\>\:\:avg\(\) expects \(callable\(AgenticOrchestrator\\Responses\\ResponseSegment\)\: float\)\|int\|string\|null, Closure\(AgenticOrchestrator\\Responses\\ResponseSegment\)\: \(float\|null\) given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Responses/HybridResponse.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Responses/HybridResponse.php
+
+		-
+			message: '#^Cannot access offset ''chunk_index'' on AgenticOrchestrator\\Embeddings\\VectorSearchResult\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Responses/HybridResponseBuilder.php
+
+		-
+			message: '#^Cannot access offset ''content'' on AgenticOrchestrator\\Embeddings\\VectorSearchResult\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Responses/HybridResponseBuilder.php
+
+		-
+			message: '#^Cannot access offset ''document_id'' on AgenticOrchestrator\\Embeddings\\VectorSearchResult\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Responses/HybridResponseBuilder.php
+
+		-
+			message: '#^Cannot access offset ''score'' on AgenticOrchestrator\\Embeddings\\VectorSearchResult\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Responses/HybridResponseBuilder.php
+
+		-
+			message: '#^Cannot access offset ''source'' on AgenticOrchestrator\\Embeddings\\VectorSearchResult\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Responses/HybridResponseBuilder.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 6
+			path: src/Responses/ResponseSegment.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Streaming/StreamChunk.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$transformer with type \(Closure\)\|null is not subtype of native type Closure\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: src/Streaming/StreamHandler.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between AgenticOrchestrator\\Streaming\\StreamChunk and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: src/Streaming/StreamHandler.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Streaming/StreamHandler.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Streaming\\StreamResponse\:\:onDone\(\) has parameter \$callback with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Streaming/StreamResponse.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Streaming\\StreamResponse\:\:onToolCall\(\) has parameter \$callback with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Streaming/StreamResponse.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Streaming/StreamResponse.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\StructuredOutput\\SchemaBuilder\:\:stringProperty\(\) has parameter \$enum with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/StructuredOutput/SchemaBuilder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\StructuredOutput\\SchemaBuilder\:\:toJson\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/StructuredOutput/SchemaBuilder.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 7
+			path: src/StructuredOutput/SchemaBuilder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\StructuredOutput\\StructuredResponse\:\:toJson\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/StructuredOutput/StructuredResponse.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 4
+			path: src/StructuredOutput/StructuredResponse.php
+
+		-
+			message: '#^Parameter \#1 \$toolClass of method AgenticOrchestrator\\Tools\\ToolRegistry\:\:register\(\) expects class\-string\<AgenticOrchestrator\\Contracts\\ToolInterface\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Testing/AgentTestCase.php
+
+		-
+			message: '#^Parameter \#2 \$name of method AgenticOrchestrator\\Tools\\ToolRegistry\:\:register\(\) expects string\|null, AgenticOrchestrator\\Testing\\FakeTool given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Testing/AgentTestCase.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Testing/FakeAgent.php
+
+		-
+			message: '#^Parameter \#1 \$chunks of class AgenticOrchestrator\\Streaming\\StreamResponse constructor expects iterable\<AgenticOrchestrator\\Streaming\\StreamChunk\>, Closure given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Testing/FakeAgent.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Testing/FakeAgent.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Testing/FakeMemory.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Testing/FakeMemory.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Testing/FakeResponse.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Testing/FakeTool.php
+
+		-
+			message: '#^Call to an undefined method AgenticOrchestrator\\Workflows\\WorkflowContext\:\:markStepComplete\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Testing/FakeWorkflow.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getKey\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Testing/FakeWorkflow.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Testing/FakeWorkflow.php
+
+		-
+			message: '#^Call to function method_exists\(\) with class\-string\<AgenticOrchestrator\\Contracts\\ToolInterface\> and ''getName'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:discoverFromClass\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:discoverFromClasses\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:discovered\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:getAllSchemas\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:getAllSchemas\(\) should return array\<string, array\> but returns array\<string, array\|null\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:getSchema\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolRegistry\:\:getSchemas\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Parameter \#1 \$objectOrClass of class ReflectionClass constructor expects class\-string\<T of object\>\|T of object, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Tools\\ToolRegistry\:\:\$schemaCache type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolRegistry.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Tools\\ToolResult implements generic interface Illuminate\\Contracts\\Support\\Arrayable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Tools/ToolResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolResult\:\:failure\(\) has parameter \$arguments with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolResult.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tools\\ToolResult\:\:success\(\) has parameter \$arguments with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tools/ToolResult.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>required" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/Tools/ToolSchemaBuilder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\CostCalculator\:\:__construct\(\) has parameter \$customPricing with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\CostCalculator\:\:estimateMonthly\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\CostCalculator\:\:make\(\) has parameter \$customPricing with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Tracking\\CostCalculator\:\:\$customPricing type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Tracking\\CostCalculator\:\:\$defaultPricing type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Tracking/CostCalculator.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\LatencyRecorder\:\:allStats\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/LatencyRecorder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\LatencyRecorder\:\:percentile\(\) has parameter \$sorted with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/LatencyRecorder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\LatencyRecorder\:\:stats\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/LatencyRecorder.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\LatencyRecorder\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/LatencyRecorder.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Tracking/LatencyRecorder.php
+
+		-
+			message: '#^Call to method get\(\) on an unknown class Yethee\\Tiktoken\\EncoderProvider\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Tracking/TokenCounter.php
+
+		-
+			message: '#^Instantiated class Yethee\\Tiktoken\\EncoderProvider not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Tracking/TokenCounter.php
+
+		-
+			message: '#^Offset ''content'' on array\{role\: string, content\: string\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Tracking/TokenCounter.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Tracking\\TokenCounter\:\:\$modelMultipliers type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/TokenCounter.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageRecord\:\:__construct\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageRecord.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageRecord\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageRecord.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageRecord\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageRecord.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:baseQuery\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:byAgent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:byModel\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:generateByAgent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:generateByModel\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:generateSummary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:generateTimeline\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:generateTopUsers\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:summary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:timeline\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageReport\:\:toArray\(\) should return array but returns array\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Tracking\\UsageReport\:\:\$data type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 3
+			path: src/Tracking/UsageReport.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageTracker\:\:getTeamSummary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageTracker.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageTracker\:\:getUsageByAgent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageTracker.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageTracker\:\:track\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageTracker.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Tracking\\UsageTracker\:\:trackEmbedding\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Tracking/UsageTracker.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Tracking/UsageTracker.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\Events\\WorkflowStarted\:\:getTenantKey\(\) should return string\|null but returns int\|string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Workflows/Events/WorkflowStarted.php
+
+		-
+			message: '#^Instanceof between AgenticOrchestrator\\Workflows\\StepResult and AgenticOrchestrator\\Workflows\\StepResult will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Workflows/Patterns/ChainOfThoughtPattern.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$reflector with type \(Closure\)\|null is not subtype of native type Closure\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: src/Workflows/Patterns/ChainOfThoughtPattern.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Patterns/ChainOfThoughtPattern.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\Patterns\\MapReducePattern\:\:__construct\(\) has parameter \$collection with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Patterns/MapReducePattern.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\Patterns\\MapReducePattern\:\:make\(\) has parameter \$collection with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Patterns/MapReducePattern.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Workflows\\Patterns\\MapReducePattern\:\:\$collection type has no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Patterns/MapReducePattern.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Patterns/MapReducePattern.php
+
+		-
+			message: '#^Instanceof between AgenticOrchestrator\\Workflows\\StepResult and AgenticOrchestrator\\Workflows\\StepResult will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Workflows/Patterns/ParallelPattern.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Patterns/ParallelPattern.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Patterns/SequentialPattern.php
+
+		-
+			message: '#^Call to function method_exists\(\) with AgenticOrchestrator\\Contracts\\AgentInterface and ''getDescription'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^Cannot call method forUser\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\Patterns\\SupervisorPattern\:\:parseSupervisorDecision\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^Offset ''reason'' might not exist on array\{action\: ''escalate'', worker\?\: string, workers\?\: array, task\?\: string, response\?\: string, reason\?\: string\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$router with type \(Closure\)\|null is not subtype of native type Closure\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Patterns/SupervisorPattern.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Call to an undefined method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:getId\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Call to an undefined static method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:create\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Call to an undefined static method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:where\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Workflows\\State\\WorkflowState has PHPDoc tag @property for property \$input with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Workflows\\State\\WorkflowState has PHPDoc tag @property for property \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Class AgenticOrchestrator\\Workflows\\State\\WorkflowState has PHPDoc tag @property for property \$state with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:addMetadata\(\) has parameter \$metadata with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:createForExecution\(\) has parameter \$input with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:markCompleted\(\) has parameter \$state with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:markFailed\(\) has parameter \$state with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:markPaused\(\) has parameter \$state with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:prunable\(\) return type with generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:scopeActive\(\) has parameter \$query with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:scopePaused\(\) has parameter \$query with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:scopePending\(\) has parameter \$query with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:scopeRunning\(\) has parameter \$query with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\State\\WorkflowState\:\:updateState\(\) has parameter \$state with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>id" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/Workflows/State/WorkflowState.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 5
+			path: src/Workflows/StepResult.php
+
+		-
+			message: '#^Cannot call method forUser\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Workflows/Steps/AgentStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Steps/AgentStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Steps/CallbackStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 3
+			path: src/Workflows/Steps/ConditionalStep.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Workflows\\Steps\\DelayStep\:\:\$sleepFunction \(callable\(int\)\: void\) does not accept Closure\(int\)\: int\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Workflows/Steps/DelayStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Workflows/Steps/DelayStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Steps/HumanApprovalStep.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\Steps\\LoopStep\:\:forEach\(\) has parameter \$collection with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Steps/LoopStep.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Workflows\\Steps\\LoopStep\:\:\$collectionResolver type has no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/Steps/LoopStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 2
+			path: src/Workflows/Steps/LoopStep.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Workflows/Steps/Step.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Workflows/Steps/Step.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Steps/SubWorkflowStep.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/Steps/WhileStep.php
+
+		-
+			message: '#^Access to an undefined property object\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Method AgenticOrchestrator\\Workflows\\WorkflowContext\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Parameter \#1 \$key of method AgenticOrchestrator\\Workflows\\WorkflowContext\:\:set\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Workflows\\WorkflowContext\:\:\$failedSteps \(array\<string, array\{message\: string, exception\?\: string\}\>\) does not accept non\-empty\-array\<string, array\{message\: string, exception\?\: string\|null\}\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>id" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/Workflows/WorkflowContext.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Workflows\\WorkflowDefinition\:\:\$namedSteps \(array\<string, AgenticOrchestrator\\Contracts\\StepInterface\>\) does not accept array\<string, AgenticOrchestrator\\Contracts\\StepInterface\|string\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Workflows/WorkflowDefinition.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Workflows/WorkflowDefinition.php
+
+		-
+			message: '#^Parameter \#1 \$workflowClass of method AgenticOrchestrator\\Workflows\\WorkflowRunner\:\:resolveWorkflowClass\(\) expects class\-string\<AgenticOrchestrator\\Contracts\\WorkflowInterface\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Workflows/WorkflowRunner.php

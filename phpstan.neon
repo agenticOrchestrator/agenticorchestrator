@@ -1,0 +1,24 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+    tmpDir: .phpstan.cache
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # Artisan command argument/option return types vary across Laravel versions
+        -
+            message: '#Cannot cast .+ to string#'
+            paths:
+                - src/Console/Commands/*
+        -
+            message: '#of encapsed string cannot be cast to string#'
+            paths:
+                - src/Console/Commands/*
+        -
+            message: '#Parameter .+ given.*\$this->option\(#'
+            paths:
+                - src/Console/Commands/*

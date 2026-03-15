@@ -1,0 +1,19 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Export ignore (excluded from Packagist downloads)
+/.github export-ignore
+/tests export-ignore
+/.claude export-ignore
+/.serena export-ignore
+/.mcp.json export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+phpstan.neon export-ignore
+phpstan-baseline.neon export-ignore
+phpunit.xml.dist export-ignore
+composer.lock export-ignore
+coverage.xml export-ignore
+ROADMAP.md export-ignore
+SPECIFICATION.md export-ignore
+CONTRIBUTING.md export-ignore

@@ -1,0 +1,78 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Contracts\WorkflowInterface;
+use AgenticOrchestrator\Workflows\WorkflowContext;
+use AgenticOrchestrator\Workflows\WorkflowDefinition;
+
+/**
+ * {{ class }} Workflow
+ *
+ * Define your workflow steps using the fluent API.
+ */
+class {{ class }} implements WorkflowInterface
+{
+    /**
+     * The team ID this workflow belongs to.
+     */
+    protected int|string|null $teamId = null;
+
+    /**
+     * Define the workflow steps.
+     *
+     * Use the fluent builder to compose your workflow:
+     * - agent(): Execute an AI agent
+     * - callback(): Run a custom function
+     * - approval(): Pause for human review
+     * - when(): Conditional branching
+     * - parallel(): Execute steps concurrently
+     * - sequential(): Group steps in sequence
+     * - supervisor(): Agent orchestrates other agents
+     */
+    public function definition(): WorkflowDefinition
+    {
+        return WorkflowDefinition::create()
+            ->name('{{ class }}')
+            ->description('Describe your workflow purpose here')
+
+            // Example: Agent step
+            // ->agent('analyze', 'my-agent', fn (WorkflowContext $ctx) =>
+            //     "Analyze the following: {$ctx->get('input')}"
+            // )
+
+            // Example: Callback step
+            // ->callback('transform', function (WorkflowContext $ctx) {
+            //     return ['transformed' => strtoupper($ctx->get('analyze.result'))];
+            // })
+
+            // Example: Human approval gate
+            // ->approval('review', fn (WorkflowContext $ctx) =>
+            //     "Please review: {$ctx->get('transform.result')}"
+            // )
+
+            // Example: Conditional step
+            // ->when(
+            //     'check_threshold',
+            //     fn (WorkflowContext $ctx) => $ctx->get('score') > 80,
+            //     AgentStep::make('high-scorer', 'Process high score'),
+            //     AgentStep::make('low-scorer', 'Process low score')
+            // )
+        ;
+    }
+
+    /**
+     * Scope the workflow to a specific team.
+     *
+     * @param int|string|object $team
+     */
+    public function forTeam(int|string|object $team): static
+    {
+        $clone = clone $this;
+        $clone->teamId = is_object($team) ? $team->getKey() : $team;
+
+        return $clone;
+    }
+}

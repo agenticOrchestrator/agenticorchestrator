@@ -1,0 +1,46 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Agents\Agent;
+
+/**
+ * {{ description }}
+ */
+class {{ class }} extends Agent
+{
+    /**
+     * The default LLM model for this agent.
+     */
+    protected string $model = '{{ model }}';
+
+    /**
+     * The default LLM provider for this agent.
+     */
+    protected string $provider = '{{ provider }}';
+
+    /**
+     * Agent capabilities configuration.
+     *
+     * @var array<string, mixed>
+     */
+    protected array $capabilities = [
+        'can_delegate' => false,
+        'max_iterations' => 10,
+        'require_approval' => false,
+    ];
+
+    /**
+     * Get the agent's system instructions.
+     */
+    public function instructions(): string
+    {
+        return <<<'INSTRUCTIONS'
+        You are a helpful AI assistant.
+
+        Be concise and helpful in your responses.
+        INSTRUCTIONS;
+    }
+}

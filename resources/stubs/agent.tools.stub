@@ -1,0 +1,87 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use AgenticOrchestrator\Agents\Agent;
+use AgenticOrchestrator\Tools\Attributes\Tool;
+use AgenticOrchestrator\Tools\Attributes\ToolParameter;
+
+/**
+ * {{ description }}
+ */
+class {{ class }} extends Agent
+{
+    /**
+     * The default LLM model for this agent.
+     */
+    protected string $model = '{{ model }}';
+
+    /**
+     * The default LLM provider for this agent.
+     */
+    protected string $provider = '{{ provider }}';
+
+    /**
+     * Agent capabilities configuration.
+     *
+     * @var array<string, mixed>
+     */
+    protected array $capabilities = [
+        'can_delegate' => false,
+        'max_iterations' => 10,
+        'require_approval' => false,
+    ];
+
+    /**
+     * Get the agent's system instructions.
+     */
+    public function instructions(): string
+    {
+        return <<<'INSTRUCTIONS'
+        You are a helpful AI assistant with access to tools.
+
+        Use the available tools when appropriate to help the user.
+        Be concise and helpful in your responses.
+        INSTRUCTIONS;
+    }
+
+    /**
+     * Example tool method - look up information.
+     *
+     * Replace this with your actual tool implementation.
+     */
+    #[Tool('Look up information by ID')]
+    public function lookupInfo(
+        #[ToolParameter('The ID to look up')]
+        string $id,
+    ): array {
+        // TODO: Implement your tool logic here
+        return [
+            'id' => $id,
+            'status' => 'found',
+            'data' => [],
+        ];
+    }
+
+    /**
+     * Example tool method - perform a search.
+     *
+     * Replace this with your actual tool implementation.
+     */
+    #[Tool('Search for items matching a query')]
+    public function search(
+        #[ToolParameter('The search query')]
+        string $query,
+        #[ToolParameter('Maximum number of results', enum: ['10', '25', '50'])]
+        string $limit = '10',
+    ): array {
+        // TODO: Implement your tool logic here
+        return [
+            'query' => $query,
+            'limit' => (int) $limit,
+            'results' => [],
+        ];
+    }
+}
