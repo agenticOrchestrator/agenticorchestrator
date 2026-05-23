@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace AgenticOrchestrator\Tests\Unit\Workflows\Patterns;
 
+use AgenticOrchestrator\Contracts\ParallelDriverInterface;
 use AgenticOrchestrator\Contracts\StepInterface;
+use AgenticOrchestrator\Workflows\Patterns\ParallelOptions;
 use AgenticOrchestrator\Workflows\Patterns\ParallelPattern;
 use AgenticOrchestrator\Workflows\StepResult;
 use AgenticOrchestrator\Workflows\WorkflowContext;
@@ -161,6 +163,27 @@ class ParallelPatternTest extends TestCase
 
         $this->assertTrue($pattern->isRetryable());
         $this->assertSame(3, $pattern->getMaxRetries());
+    }
+
+    #[Test]
+    public function it_delegates_execution_to_the_configured_driver(): void
+    {
+        $driver = new class implements ParallelDriverInterface
+        {
+            public bool $called = false;
+
+            public function run(array $steps, WorkflowContext $context, ParallelOptions $options): StepResult
+            {
+                $this->called = true;
+
+                return StepResult::success(['from' => 'driver']);
+            }
+        };
+
+        $result = ParallelPattern::make([])->useDriver($driver)->execute(new WorkflowContext);
+
+        $this->assertTrue($driver->called);
+        $this->assertSame(['from' => 'driver'], $result->output);
     }
 
     /**

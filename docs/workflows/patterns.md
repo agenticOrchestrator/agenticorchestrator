@@ -31,6 +31,12 @@ $pattern = SequentialPattern::make([
 
 ## Parallel Execution (Fan-Out / Fan-In)
 
+> **Execution model.** `parallel()` uses the **synchronous driver** by default:
+> branches run in-process, one after another, but with parallel semantics
+> (independent results, race mode, failure thresholds, result merging). For real
+> concurrency across queue workers, use
+> [`parallelQueued()`](#queued-execution-true-concurrency).
+
 Process multiple items in parallel, then aggregate:
 
 ```php
@@ -63,8 +69,8 @@ $pattern = ParallelPattern::make([
     AgentStep::make('api-agent', 'Fetch from API 3')->as('api-3'),
 ])
     ->as('gather-data')
-    ->allowFailures(1)  // Continue if up to 1 step fails
-    ->maxConcurrency(3);  // Limit concurrent executions
+    ->allowFailures(1)   // Continue if up to 1 branch fails
+    ->maxConcurrency(3); // Concurrency hint (not enforced by the sync driver yet)
 ```
 
 ### Race Mode
@@ -78,6 +84,51 @@ $pattern = ParallelPattern::make([
 ])
     ->race();  // Return first successful result
 ```
+
+### Queued Execution (True Concurrency)
+
+`parallelQueued()` dispatches each branch as a queued job inside a
+`Bus::batch()`. The branches run concurrently on your queue workers; the driver
+waits for the batch to finish and then merges the results. The pattern API is
+identical to `parallel()` — only the execution driver behind it changes.
+
+```php
+use AgenticOrchestrator\Workflows\WorkflowDefinition;
+use AgenticOrchestrator\Workflows\Steps\AgentStep;
+
+$definition = WorkflowDefinition::create()
+    ->name('Batch Analysis')
+    ->parallelQueued('analyze-all', [
+        AgentStep::make('analyzer-agent', 'Analyze segment A')->as('a'),
+        AgentStep::make('analyzer-agent', 'Analyze segment B')->as('b'),
+        AgentStep::make('analyzer-agent', 'Analyze segment C')->as('c'),
+    ])
+    ->agent('aggregate', 'aggregator-agent', fn ($ctx) =>
+        'Summarize: ' . json_encode($ctx->get('analyze-all'))
+    );
+```
+
+Connection, queue, timeout, and poll interval default to the
+`agent-orchestrator.workflows.parallel.*` config and can be overridden per call:
+
+```php
+->parallelQueued('analyze-all', $branches, connection: 'redis', queue: 'agents')
+```
+
+Because agent work is mostly spent waiting on LLM responses, fanning branches
+out across workers turns a sequence of API calls into roughly the cost of the
+slowest one.
+
+**Limitations of this first version:**
+
+- **Serializable branches only.** Branch steps are serialized onto the queue, so
+  they cannot hold closures. Use invokable `Step` subclasses or `AgentStep` with
+  a *registered agent name* (a string), not a closure message/agent instance.
+- **The orchestrating process blocks** while the batch runs. If the workflow
+  itself is queued, run branch jobs on a *different* worker pool so they don't
+  starve the queue. A non-blocking pause/resume variant is planned.
+- **Tenant/user scope is not re-applied** inside branch jobs yet.
+- Requires Laravel's batch table (`job_batches`) and a configured cache store.
 
 ## Human-in-the-Loop
 

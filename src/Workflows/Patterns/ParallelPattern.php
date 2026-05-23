@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace AgenticOrchestrator\Workflows\Patterns;
 
+use AgenticOrchestrator\Contracts\ParallelDriverInterface;
 use AgenticOrchestrator\Contracts\StepInterface;
+use AgenticOrchestrator\Workflows\Patterns\Drivers\SyncParallelDriver;
 use AgenticOrchestrator\Workflows\StepResult;
 use AgenticOrchestrator\Workflows\WorkflowContext;
-use Illuminate\Support\Facades\Log;
-use Throwable;
 
 /**
- * Parallel Pattern - Executes steps concurrently.
+ * Parallel Pattern - Executes independent branches with parallel semantics.
  *
- * All steps are executed in parallel (using PHP's concurrent execution),
- * and the pattern waits for all to complete before continuing.
+ * The pattern describes *what* runs in parallel; a {@see ParallelDriverInterface}
+ * decides *how*. The default {@see SyncParallelDriver} runs branches in-process
+ * (sequentially, but with race mode, failure thresholds, and result merging).
+ * The {@see Drivers\QueueParallelDriver} fans branches out across queue workers
+ * for true concurrency.
  */
 class ParallelPattern implements StepInterface
 {
@@ -44,6 +47,11 @@ class ParallelPattern implements StepInterface
      * Whether to wait for all steps or just the first success.
      */
     protected bool $waitForAll = true;
+
+    /**
+     * The driver used to execute the branches (defaults to synchronous).
+     */
+    protected ?ParallelDriverInterface $driver = null;
 
     /**
      * Create a new parallel pattern.
@@ -120,94 +128,44 @@ class ParallelPattern implements StepInterface
     }
 
     /**
-     * Execute all steps in parallel.
+     * Execute all branches through the configured driver.
      *
-     * Note: True parallelism requires PHP extensions like parallel or amphp.
-     * This implementation uses synchronous execution with parallel semantics.
-     * For true async execution, override with async driver.
+     * Defaults to the {@see SyncParallelDriver}. Call {@see useDriver()} or use
+     * WorkflowDefinition::parallelQueued() to fan branches out across workers.
      */
     public function execute(WorkflowContext $context): StepResult
     {
-        if (empty($this->steps)) {
-            return StepResult::success([]);
-        }
+        return $this->resolveDriver()->run($this->steps, $context, $this->options());
+    }
 
-        $results = [];
-        $failures = 0;
-        $successes = 0;
+    /**
+     * Set the driver used to execute the branches.
+     */
+    public function useDriver(ParallelDriverInterface $driver): static
+    {
+        $this->driver = $driver;
 
-        // In a real parallel implementation, use Fibers, ReactPHP, or amphp
-        // This implementation processes sequentially but with parallel semantics
-        foreach ($this->steps as $step) {
-            $stepName = $step->getName();
+        return $this;
+    }
 
-            // Skip already completed steps (for resumption)
-            if ($context->isStepCompleted($stepName)) {
-                $successes++;
+    /**
+     * Resolve the execution driver, defaulting to synchronous in-process.
+     */
+    protected function resolveDriver(): ParallelDriverInterface
+    {
+        return $this->driver ??= new SyncParallelDriver;
+    }
 
-                continue;
-            }
-
-            try {
-                $result = $step->execute($context);
-                $results[$stepName] = $result;
-
-                if ($result->isSuccess()) {
-                    $successes++;
-                    $context->markStepCompleted($stepName);
-
-                    // Race mode: return on first success
-                    if (! $this->waitForAll) {
-                        return StepResult::success(
-                            [$stepName => $result->output],
-                            ['winner' => $stepName, 'partial_results' => $results]
-                        );
-                    }
-                } elseif ($result->isFailed()) {
-                    $failures++;
-                    $context->markStepFailed($stepName, $result->message ?? 'Unknown error');
-                } elseif ($result->shouldPause()) {
-                    // A step is waiting for approval - pause entire parallel execution
-                    return StepResult::waiting(
-                        "Parallel step '{$stepName}' requires approval",
-                        ['paused_at' => $stepName, 'step_result' => $result],
-                        ['partial_results' => $results]
-                    );
-                }
-            } catch (Throwable $e) {
-                $failures++;
-                $results[$stepName] = StepResult::failed($e->getMessage(), $e);
-                $context->markStepFailed($stepName, $e->getMessage(), get_class($e));
-
-                Log::error("Parallel step '{$stepName}' threw exception", [
-                    'exception' => $e->getMessage(),
-                ]);
-            }
-        }
-
-        // Check failure threshold
-        if ($failures > $this->failureThreshold) {
-            return StepResult::failed(
-                "Too many parallel step failures ({$failures} > {$this->failureThreshold})",
-                metadata: ['step_results' => $results, 'failures' => $failures, 'successes' => $successes]
-            );
-        }
-
-        // Collect successful outputs
-        $outputs = [];
-        foreach ($results as $stepName => $result) {
-            if ($result instanceof StepResult && $result->isSuccess()) {
-                $outputs[$stepName] = $result->output;
-            }
-        }
-
-        return StepResult::success(
-            $outputs,
-            [
-                'steps_completed' => $successes,
-                'steps_failed' => $failures,
-                'step_results' => $results,
-            ]
+    /**
+     * Build the immutable options snapshot handed to the driver.
+     */
+    protected function options(): ParallelOptions
+    {
+        return new ParallelOptions(
+            name: $this->name,
+            failureThreshold: $this->failureThreshold,
+            waitForAll: $this->waitForAll,
+            maxConcurrency: $this->maxConcurrency,
         );
     }
 

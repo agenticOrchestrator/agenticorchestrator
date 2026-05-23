@@ -247,6 +247,33 @@ interface StepInterface
 }
 ```
 
+## ParallelDriverInterface
+
+Strategy for executing the branches of a `ParallelPattern`. The default
+`SyncParallelDriver` runs branches in-process; `QueueParallelDriver` fans them
+out across queue workers via `Bus::batch()`.
+
+```php
+namespace AgenticOrchestrator\Contracts;
+
+use AgenticOrchestrator\Workflows\Patterns\ParallelOptions;
+use AgenticOrchestrator\Workflows\StepResult;
+use AgenticOrchestrator\Workflows\WorkflowContext;
+
+interface ParallelDriverInterface
+{
+    /**
+     * Execute the given branch steps and aggregate their results.
+     *
+     * @param  array<StepInterface>  $steps
+     */
+    public function run(array $steps, WorkflowContext $context, ParallelOptions $options): StepResult;
+}
+```
+
+Select the driver with `ParallelPattern::useDriver()`, or use
+`WorkflowDefinition::parallelQueued()` for the queued variant.
+
 ## TeamScopedInterface
 
 Interface for team-scoped components.

@@ -11,7 +11,10 @@ use AgenticOrchestrator\Workflows\WorkflowDefinition;
 /**
  * {{ class }} Workflow - Parallel execution example.
  *
- * This workflow demonstrates how to run multiple steps concurrently.
+ * This workflow demonstrates parallel branches. `parallel()` runs them
+ * in-process (synchronously, with parallel semantics). For true concurrency
+ * across queue workers, swap `parallel()` for `parallelQueued()` and replace the
+ * closure branches below with serializable steps (no closures).
  */
 class {{ class }} implements WorkflowInterface
 {
