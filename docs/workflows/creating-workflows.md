@@ -153,7 +153,10 @@ $definition->when(
 
 ### Adding Parallel Steps
 
-Use the `parallel()` method to execute steps concurrently:
+Use the `parallel()` method to run independent branches with parallel semantics.
+By default these run in-process (synchronously, one after another); for true
+concurrency across queue workers use `parallelQueued()` instead — see
+[Workflow Patterns](patterns.md#queued-execution-true-concurrency).
 
 ```php
 use AgenticOrchestrator\Workflows\Steps\AgentStep;
@@ -162,6 +165,12 @@ $definition->parallel('gather-insights', [
     AgentStep::make('market-agent', 'Analyze market trends'),
     AgentStep::make('competitor-agent', 'Analyze competitors'),
     AgentStep::make('customer-agent', 'Analyze customer feedback'),
+]);
+
+// Same API, fanned out across queue workers (branches must be serializable):
+$definition->parallelQueued('gather-insights', [
+    AgentStep::make('market-agent', 'Analyze market trends')->as('market'),
+    AgentStep::make('competitor-agent', 'Analyze competitors')->as('competitors'),
 ]);
 ```
 

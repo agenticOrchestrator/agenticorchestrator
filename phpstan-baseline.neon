@@ -1909,12 +1909,6 @@ parameters:
 			path: src/Workflows/Patterns/MapReducePattern.php
 
 		-
-			message: '#^Instanceof between AgenticOrchestrator\\Workflows\\StepResult and AgenticOrchestrator\\Workflows\\StepResult will always evaluate to true\.$#'
-			identifier: instanceof.alwaysTrue
-			count: 1
-			path: src/Workflows/Patterns/ParallelPattern.php
-
-		-
 			message: '#^Unsafe usage of new static\(\)\.$#'
 			identifier: new.static
 			count: 1

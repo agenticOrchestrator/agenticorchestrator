@@ -6,6 +6,7 @@ namespace AgenticOrchestrator\Workflows;
 
 use AgenticOrchestrator\Contracts\AgentInterface;
 use AgenticOrchestrator\Contracts\StepInterface;
+use AgenticOrchestrator\Workflows\Patterns\Drivers\QueueParallelDriver;
 use AgenticOrchestrator\Workflows\Patterns\ParallelPattern;
 use AgenticOrchestrator\Workflows\Patterns\SequentialPattern;
 use AgenticOrchestrator\Workflows\Patterns\SupervisorPattern;
@@ -150,6 +151,35 @@ class WorkflowDefinition
     public function parallel(string $name, array $steps): static
     {
         $pattern = ParallelPattern::make($steps)->as($name);
+        $this->addStep($name, $pattern);
+
+        return $this;
+    }
+
+    /**
+     * Add parallel steps that fan out across queue workers.
+     *
+     * Branches are dispatched as a batch and executed concurrently on the
+     * configured queue. Connection/queue/timeout default to the
+     * `agent-orchestrator.workflows.parallel.*` config. Branch steps must be
+     * serializable (no closures).
+     *
+     * @param  array<StepInterface>  $steps
+     */
+    public function parallelQueued(
+        string $name,
+        array $steps,
+        ?string $connection = null,
+        ?string $queue = null,
+    ): static {
+        $driver = new QueueParallelDriver(
+            connection: $connection ?? config('agent-orchestrator.workflows.parallel.queue_connection'),
+            queue: $queue ?? config('agent-orchestrator.workflows.parallel.queue'),
+            timeout: (int) config('agent-orchestrator.workflows.parallel.timeout', 300),
+            pollIntervalMs: (int) config('agent-orchestrator.workflows.parallel.poll_interval', 250),
+        );
+
+        $pattern = ParallelPattern::make($steps)->as($name)->useDriver($driver);
         $this->addStep($name, $pattern);
 
         return $this;

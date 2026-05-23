@@ -12,7 +12,7 @@ A Laravel AI Agent framework with **first-class multi-tenancy support**.
 - **First-Class Multi-Tenancy** — Team isolation, system vs custom agents, per-team cost attribution
 - **10+ LLM Providers** — OpenAI, Anthropic, Gemini, Mistral, Ollama, and more via Prism PHP
 - **5 Vector Stores** — Pinecone, Qdrant, Weaviate, Chroma, PgVector for semantic memory
-- **Full Workflow Engine** — Sequential, parallel, conditional, loop, and human-in-the-loop patterns
+- **Full Workflow Engine** — Sequential, parallel (in-process or queued across workers), conditional, loop, and human-in-the-loop patterns
 - **LLM-as-Judge Evaluation** — Built-in evaluation framework with custom assertions and metrics
 - **Production Ready** — Rate limiting, caching, circuit breakers, and comprehensive event system
 

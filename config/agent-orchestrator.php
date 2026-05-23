@@ -476,6 +476,15 @@ return [
         'step_timeout' => env('AGENT_WORKFLOW_STEP_TIMEOUT', 300), // seconds
         'persistence' => env('AGENT_WORKFLOW_PERSISTENCE', true),
 
+        // Settings for WorkflowDefinition::parallelQueued() / QueueParallelDriver.
+        // The default parallel() pattern runs in-process and ignores these.
+        'parallel' => [
+            'queue_connection' => env('AGENT_WORKFLOW_PARALLEL_CONNECTION'), // null = default connection
+            'queue' => env('AGENT_WORKFLOW_PARALLEL_QUEUE', 'agents'),
+            'timeout' => env('AGENT_WORKFLOW_PARALLEL_TIMEOUT', 300), // max seconds to await the batch
+            'poll_interval' => env('AGENT_WORKFLOW_PARALLEL_POLL', 250), // batch status poll interval (ms)
+        ],
+
         'human_in_loop' => [
             'default_timeout' => env('AGENT_HITL_TIMEOUT', 86400), // 24 hours
             'escalation' => 'notify', // notify, auto_approve, reject
