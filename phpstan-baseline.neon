@@ -85,6 +85,36 @@ parameters:
 			path: src/Agents/Agent.php
 
 		-
+			message: '#^Property AgenticOrchestrator\\Agents\\Agent\:\:\$isSystem \(bool\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\Agent\:\:\$memory \(array\<string, int\|string\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\Agent\:\:\$tools \(array\<int, class\-string\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 4
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$content \(string\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 2
+			path: src/Agents/Agent.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$usage \(array\<string, int\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Agents/Agent.php
+
+		-
 			message: '#^Return type \(Illuminate\\Support\\Collection\<int, array\{name\: string, description\: string, method\: ReflectionMethod, attribute\: AgenticOrchestrator\\Tools\\Attributes\\Tool\}\>\) of method AgenticOrchestrator\\Agents\\Agent\:\:getTools\(\) should be compatible with return type \(Illuminate\\Support\\Collection\<int, AgenticOrchestrator\\Contracts\\ToolInterface\>\) of method AgenticOrchestrator\\Contracts\\AgentInterface\:\:getTools\(\)$#'
 			identifier: method.childReturnType
 			count: 1
@@ -243,6 +273,24 @@ parameters:
 		-
 			message: '#^Method AgenticOrchestrator\\Caching\\ResponseCache\:\:has\(\) has parameter \$context with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
+			count: 1
+			path: src/Caching/ResponseCache.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$metadata \(array\<string, mixed\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Caching/ResponseCache.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$toolCalls \(array\<int, array\<string, mixed\>\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Caching/ResponseCache.php
+
+		-
+			message: '#^Property AgenticOrchestrator\\Agents\\AgentResponse\:\:\$usage \(array\<string, int\>\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
 			count: 1
 			path: src/Caching/ResponseCache.php
 
@@ -817,18 +865,6 @@ parameters:
 			path: src/Memory/Drivers/CacheDriver.php
 
 		-
-			message: '#^Access to an undefined property object\:\:\$content\.$#'
-			identifier: property.notFound
-			count: 2
-			path: src/Memory/Drivers/DatabaseDriver.php
-
-		-
-			message: '#^Access to an undefined property object\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: src/Memory/Drivers/DatabaseDriver.php
-
-		-
 			message: '#^Method AgenticOrchestrator\\Memory\\Drivers\\DatabaseDriver\:\:search\(\) should return Illuminate\\Support\\Collection\<int, array\{key\: string, content\: mixed, score\: float, metadata\: array\<string, mixed\>\}\> but returns Illuminate\\Support\\Collection\<int, array\{key\: mixed, content\: mixed, score\: mixed, metadata\: mixed\}\>\.$#'
 			identifier: return.type
 			count: 1
@@ -1078,6 +1114,24 @@ parameters:
 			message: '#^Offset ''tool_name'' on array\{role\: ''tool'', content\: string, tool_calls\?\: array, tool_call_id\?\: string\} on left side of \?\? does not exist\.$#'
 			identifier: nullCoalesce.offset
 			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Property Prism\\Prism\\Text\\Response\:\:\$text \(string\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Property Prism\\Prism\\ValueObjects\\Usage\:\:\$completionTokens \(int\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 2
+			path: src/Providers/ProviderManager.php
+
+		-
+			message: '#^Property Prism\\Prism\\ValueObjects\\Usage\:\:\$promptTokens \(int\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 2
 			path: src/Providers/ProviderManager.php
 
 		-
@@ -1853,12 +1907,6 @@ parameters:
 			identifier: new.static
 			count: 1
 			path: src/Workflows/Patterns/MapReducePattern.php
-
-		-
-			message: '#^Instanceof between AgenticOrchestrator\\Workflows\\StepResult and AgenticOrchestrator\\Workflows\\StepResult will always evaluate to true\.$#'
-			identifier: instanceof.alwaysTrue
-			count: 1
-			path: src/Workflows/Patterns/ParallelPattern.php
 
 		-
 			message: '#^Unsafe usage of new static\(\)\.$#'
