@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Laravel 13 support: widened the `illuminate/*` constraints to `^11.0|^12.0|^13.0`.
 - Queue-based parallel execution driver: `WorkflowDefinition::parallelQueued()` fans branches out across queue workers via `Bus::batch()` for true concurrency, while `parallel()` keeps the in-process synchronous behavior. Pluggable via the new `ParallelDriverInterface` (`SyncParallelDriver`, `QueueParallelDriver`) and configurable under `workflows.parallel.*`.
 - Core agent system with Agent, AgentResponse, AgentContext, and extensible tool architecture
 - Multi-tenancy support with TenantManager, 6 resolver strategies, and team-scoped isolation

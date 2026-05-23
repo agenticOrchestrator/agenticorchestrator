@@ -106,7 +106,7 @@ Build complex multi-agent workflows with:
 Before installing Agent Orchestrator, ensure your environment meets these requirements:
 
 - **PHP**: 8.3 or higher
-- **Laravel**: 11.0 or higher (including Laravel 12)
+- **Laravel**: 11.0 or higher (including Laravel 12 and 13)
 - **Database**: MySQL, PostgreSQL, or SQLite
 - **Cache**: Redis recommended for production
 

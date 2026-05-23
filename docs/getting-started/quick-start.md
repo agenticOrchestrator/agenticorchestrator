@@ -4,7 +4,7 @@ Get your first AI agent running in under 5 minutes.
 
 ## Prerequisites
 
-- Laravel 11.x or 12.x installed
+- Laravel 11.x, 12.x, or 13.x installed
 - PHP 8.3+
 - An OpenAI API key (or other supported LLM provider)
 
