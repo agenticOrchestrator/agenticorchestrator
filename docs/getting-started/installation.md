@@ -9,7 +9,7 @@ Before installing, ensure your environment meets these requirements:
 | Requirement | Version |
 |-------------|---------|
 | PHP | 8.3+ |
-| Laravel | 11.0+ or 12.0+ |
+| Laravel | 11.0, 12.0, or 13.0 |
 | Composer | 2.0+ |
 
 ## Step 1: Install via Composer

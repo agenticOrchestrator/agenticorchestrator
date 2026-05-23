@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Laravel 13 support: widened the `illuminate/*` constraints to `^11.0|^12.0|^13.0`.
 - Core agent system with Agent, AgentResponse, AgentContext, and extensible tool architecture
 - Multi-tenancy support with TenantManager, 6 resolver strategies, and team-scoped isolation
 - Memory system with session, cache, database, vector, and RAG-backed drivers

@@ -248,7 +248,7 @@ Agent::assertToolCalled(CustomerSupportAgent::class, 'lookupOrder');
 ## Requirements
 
 - PHP 8.3+
-- Laravel 11.0+ or 12.0+
+- Laravel 11.0, 12.0, or 13.0
 
 ## Documentation
 
