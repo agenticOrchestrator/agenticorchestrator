@@ -51,7 +51,7 @@ jobs:
           composer update --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/pest --ci
+        run: vendor/bin/pest --ci --no-coverage
 
   static-analysis:
     name: Static Analysis
