@@ -7,14 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-05-24
+
+### Added
+
+- Queue-based parallel execution driver: `WorkflowDefinition::parallelQueued()` fans branches out across queue workers via `Bus::batch()` for true concurrency, while `parallel()` keeps the in-process synchronous behavior. Pluggable via the new `ParallelDriverInterface` (`SyncParallelDriver`, `QueueParallelDriver`) and configurable under `workflows.parallel.*`.
+- Laravel 13 support: widened the `illuminate/*` constraints to `^11.0|^12.0|^13.0`. The CI matrix now also runs the suite against Laravel 13 (Pest 4 / PHPUnit 12 / testbench 11), alongside Laravel 11 and 12 (Pest 3).
+
 ### Changed
 
 - Migrated the Prism dependency from the legacy `echolabsdev/prism` alias to the canonical `prism-php/prism` package (`^0.99|^0.100`, resolving to v0.100.1). The namespace was already `Prism\Prism\*`, so no application code changed.
 
+## [0.8.0] - 2026-03-15
+
 ### Added
 
-- Laravel 13 support: widened the `illuminate/*` constraints to `^11.0|^12.0|^13.0`. The CI matrix now also runs the suite against Laravel 13 (Pest 4 / PHPUnit 12 / testbench 11), alongside Laravel 11 and 12 (Pest 3).
-- Queue-based parallel execution driver: `WorkflowDefinition::parallelQueued()` fans branches out across queue workers via `Bus::batch()` for true concurrency, while `parallel()` keeps the in-process synchronous behavior. Pluggable via the new `ParallelDriverInterface` (`SyncParallelDriver`, `QueueParallelDriver`) and configurable under `workflows.parallel.*`.
 - Core agent system with Agent, AgentResponse, AgentContext, and extensible tool architecture
 - Multi-tenancy support with TenantManager, 6 resolver strategies, and team-scoped isolation
 - Memory system with session, cache, database, vector, and RAG-backed drivers
