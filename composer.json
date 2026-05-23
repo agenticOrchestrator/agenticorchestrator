@@ -32,7 +32,7 @@
         "illuminate/events": "^11.0|^12.0|^13.0",
         "illuminate/cache": "^11.0|^12.0|^13.0",
         "illuminate/queue": "^11.0|^12.0|^13.0",
-        "echolabsdev/prism": "^0.99",
+        "prism-php/prism": "^0.99|^0.100",
         "guzzlehttp/guzzle": "^7.8"
     },
     "require-dev": {

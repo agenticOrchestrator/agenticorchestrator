@@ -20,7 +20,7 @@ Install the package using Composer:
 composer require agenticorchestrator/agenticorchestrator
 ```
 
-This will install Agent Orchestrator and its dependencies, including [Prism PHP](https://prism.echolabs.dev) for LLM provider abstraction.
+This will install Agent Orchestrator and its dependencies, including [Prism PHP](https://github.com/prism-php/prism) for LLM provider abstraction.
 
 ## Step 2: Publish Configuration
 

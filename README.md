@@ -264,7 +264,7 @@ If you discover any security issues, please email agenticorchestrator@proton.me 
 
 ## Credits
 
-- Built with [Prism PHP](https://prism.echolabs.dev) for LLM abstraction
+- Built with [Prism PHP](https://github.com/prism-php/prism) for LLM abstraction
 - Inspired by [LarAgent](https://github.com/MaestroError/LarAgent), [Vizra ADK](https://vizra.ai), and [Neuron AI](https://neuron-ai.dev)
 
 ## License

@@ -25,7 +25,7 @@ Agent Orchestrator was built from the ground up with multi-tenancy in mind. Unli
 
 ### Multiple LLM Providers
 
-Powered by [Prism PHP](https://prism.echolabs.dev), Agent Orchestrator supports 10+ LLM providers through a unified interface:
+Powered by [Prism PHP](https://github.com/prism-php/prism), Agent Orchestrator supports 10+ LLM providers through a unified interface:
 
 | Provider | Models |
 |----------|--------|

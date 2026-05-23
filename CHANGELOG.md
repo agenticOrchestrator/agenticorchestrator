@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrated the Prism dependency from the legacy `echolabsdev/prism` alias to the canonical `prism-php/prism` package (`^0.99|^0.100`, resolving to v0.100.1). The namespace was already `Prism\Prism\*`, so no application code changed.
+
 ### Added
 
 - Laravel 13 support: widened the `illuminate/*` constraints to `^11.0|^12.0|^13.0`. The CI matrix now also runs the suite against Laravel 13 (Pest 4 / PHPUnit 12 / testbench 11), alongside Laravel 11 and 12 (Pest 3).
